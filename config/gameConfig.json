@@ -1,0 +1,86 @@
+{
+  "fps": 60,
+  "maxHealth": 100,
+  "lowHealthRatio": 0.2,
+  "roundsToWin": 2,
+  "roundTimeSeconds": 60,
+  "startDistance": 2.6,
+  "arenaRadius": 5.4,
+  "friction": 0.82,
+  "input": {
+    "bufferFrames": 8,
+    "simultaneousFrames": 3,
+    "motionFrames": 18,
+    "tapFrames": 9,
+    "wsWindowFrames": 12
+  },
+  "throw": {
+    "breakWindow": 16,
+    "breakPushback": 0.6,
+    "backThrowDamageScale": 1.2
+  },
+  "counterHit": {
+    "damageScale": 1.2,
+    "extraStun": 4
+  },
+  "juggle": {
+    "gravity": 0.0034,
+    "gravityScalePerHit": 0.1,
+    "lift": 0.05,
+    "liftDecay": 0.85,
+    "maxHits": 8,
+    "damageScalePerHit": 0.12,
+    "minDamageScale": 0.4,
+    "driftSpeed": 0.006,
+    "knockdownLift": 0.05,
+    "knockdownSpeed": 0.07,
+    "koLift": 0.075,
+    "koSpeed": 0.06
+  },
+  "guardBreak": {
+    "threshold": 45,
+    "decayPerFrame": 0.2,
+    "stunFrames": 40
+  },
+  "hitstop": {
+    "light": 5,
+    "heavy": 8,
+    "block": 4,
+    "throw": 10,
+    "heavyDamage": 12
+  },
+  "ground": {
+    "minLieFrames": 18,
+    "maxLieFrames": 90,
+    "getupFrames": 26,
+    "getupInvulnFrames": 10,
+    "rollFrames": 22,
+    "rollDistance": 1.3
+  },
+  "ko": {
+    "slowmoFrames": 80,
+    "slowmoScale": 0.35,
+    "holdFrames": 150
+  },
+  "round": {
+    "introFrames": 110,
+    "announceRoundFrame": 12,
+    "announceFightFrame": 74,
+    "endFrames": 150,
+    "fadeFrames": 30
+  },
+  "practice": {
+    "refillDelayFrames": 45
+  },
+  "render": {
+    "internalHeight": 360,
+    "vertexSnap": true,
+    "dither": true,
+    "scanlines": true,
+    "fov": 38
+  },
+  "keyboard": {
+    "p1": { "up": "KeyW", "down": "KeyS", "left": "KeyA", "right": "KeyD", "LP": "KeyU", "RP": "KeyI", "LK": "KeyJ", "RK": "KeyK" },
+    "p2": { "up": "ArrowUp", "down": "ArrowDown", "left": "ArrowLeft", "right": "ArrowRight", "LP": "Numpad7", "RP": "Numpad8", "LK": "Numpad4", "RK": "Numpad5" }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "common",
+  "comment": "所有角色共用的通用招式；角色招式表中同名 id 会覆盖这里的定义。帧数约定：startup = 第一个判定帧（与铁拳 i 帧一致），总帧数 = startup + active - 1 + recovery。",
+  "moves": {
+    "jump_lk": {
+      "name": "跳踢",
+      "command": "LK",
+      "context": "air",
+      "startup": 8, "active": 6, "recovery": 10,
+      "level": "mid", "damage": 8,
+      "hitbox": { "reach": 0.75, "height": 0.75, "radius": 0.28 },
+      "onHit": { "advantage": 8 },
+      "onBlock": { "advantage": 0, "pushback": 0.3 },
+      "anim": { "type": "jumpkick", "limb": "footL" }
+    },
+    "jump_rk": {
+      "name": "跳跃重踢",
+      "command": "RK",
+      "context": "air",
+      "startup": 11, "active": 5, "recovery": 12,
+      "level": "mid", "damage": 12,
+      "hitbox": { "reach": 0.85, "height": 0.9, "radius": 0.28 },
+      "onHit": { "type": "knockdown" },
+      "onBlock": { "advantage": -4, "pushback": 0.4 },
+      "anim": { "type": "jumpkick", "limb": "footR" }
+    },
+    "wake_lk": {
+      "name": "躺地踢",
+      "command": "LK",
+      "context": "ground",
+      "startup": 12, "active": 3, "recovery": 18,
+      "level": "low", "damage": 6,
+      "hitbox": { "reach": 0.95, "height": 0.2, "radius": 0.25 },
+      "onHit": { "advantage": 0 },
+      "onBlock": { "advantage": -14 },
+      "endsGrounded": true,
+      "anim": { "type": "wakelow", "limb": "footL" }
+    },
+    "wake_rk": {
+      "name": "起身踢",
+      "command": "RK",
+      "context": "ground",
+      "startup": 18, "active": 3, "recovery": 20,
+      "level": "mid", "damage": 12,
+      "hitbox": { "reach": 0.95, "height": 0.95, "radius": 0.28 },
+      "onHit": { "advantage": 4, "knockback": 0.5 },
+      "onBlock": { "advantage": -12 },
+      "anim": { "type": "wakekick", "limb": "footR" }
+    },
+    "run_tackle": {
+      "name": "冲撞",
+      "command": "auto",
+      "context": "run",
+      "startup": 6, "active": 4, "recovery": 22,
+      "level": "mid", "damage": 10,
+      "hitbox": { "reach": 0.6, "height": 1.2, "radius": 0.4 },
+      "advance": 0.5,
+      "onHit": { "type": "knockdown" },
+      "onBlock": { "advantage": -8, "pushback": 0.6 },
+      "anim": { "type": "tackle" }
+    },
+    "back_throw": {
+      "name": "背后摔投",
+      "command": "auto",
+      "startup": 12, "active": 2, "recovery": 28,
+      "level": "throw", "damage": 24,
+      "throw": { "range": 1.0, "breakInput": "none", "duration": 58, "damageFrame": 38, "type": "backslam", "swap": false },
+      "anim": { "type": "grab" }
+    }
+  }
+}

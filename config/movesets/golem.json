@@ -1,0 +1,136 @@
+{
+  "id": "golem",
+  "name": "GOLEM",
+  "title": "戈勒姆",
+  "style": "重甲摔角",
+  "archetype": "力量型",
+  "description": "金属护肩、重型拳套的巨汉。出招慢但伤害高，蓄力锤击带霸体，投技强势。",
+  "ratings": { "power": 5, "speed": 1, "reach": 4, "difficulty": 2 },
+  "stats": {
+    "height": 2.05, "scale": 1.12, "weight": 1.3,
+    "walkSpeed": 0.028, "backWalkSpeed": 0.022,
+    "dashSpeed": 0.09, "dashFrames": 16, "runSpeed": 0.075,
+    "backdashDistance": 1.0, "backdashFrames": 22,
+    "sidestepDistance": 0.8, "sidestepFrames": 18,
+    "jumpVelocity": 0.12, "jumpForwardSpeed": 0.035, "gravity": 0.0085,
+    "crouchHeight": 1.25, "hurtRadius": 0.36, "pushRadius": 0.38
+  },
+  "moves": {
+    "lp": {
+      "name": "重刺拳", "command": "LP",
+      "startup": 12, "active": 2, "recovery": 14,
+      "level": "high", "damage": 7,
+      "hitbox": { "reach": 0.95, "height": 1.65, "radius": 0.24 },
+      "onHit": { "advantage": 6 }, "onBlock": { "advantage": 0, "pushback": 0.2 },
+      "chain": [ { "input": "RP", "move": "lp_rp", "window": [3, 22] } ],
+      "anim": { "type": "punch", "limb": "handL" }
+    },
+    "lp_rp": {
+      "name": "重拳二连", "command": "chain",
+      "startup": 12, "active": 3, "recovery": 20,
+      "level": "high", "damage": 13,
+      "hitbox": { "reach": 1.0, "height": 1.6, "radius": 0.25 },
+      "onHit": { "advantage": 3, "knockback": 0.5 }, "onBlock": { "advantage": -6, "pushback": 0.35 },
+      "anim": { "type": "punch", "limb": "handR" }
+    },
+    "rp": {
+      "name": "重拳", "command": "RP",
+      "startup": 17, "active": 3, "recovery": 20,
+      "level": "high", "damage": 16,
+      "hitbox": { "reach": 1.05, "height": 1.6, "radius": 0.27 },
+      "advance": 0.2,
+      "onHit": { "advantage": 3, "knockback": 0.6 }, "onBlock": { "advantage": -7, "pushback": 0.4 },
+      "onCounter": { "type": "knockdown" },
+      "clashesProjectiles": true,
+      "anim": { "type": "hook", "limb": "handR" }
+    },
+    "lk": {
+      "name": "前踹", "command": "LK",
+      "startup": 16, "active": 3, "recovery": 20,
+      "level": "mid", "damage": 12,
+      "hitbox": { "reach": 1.05, "height": 1.05, "radius": 0.27 },
+      "onHit": { "advantage": 4, "knockback": 0.55 }, "onBlock": { "advantage": -6, "pushback": 0.5 },
+      "anim": { "type": "kick", "limb": "footL" }
+    },
+    "rk": {
+      "name": "重脚", "command": "RK",
+      "startup": 22, "active": 4, "recovery": 26,
+      "level": "mid", "damage": 22,
+      "hitbox": { "reach": 1.15, "height": 1.2, "radius": 0.3 },
+      "tracking": 2,
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -14, "pushback": 0.45 },
+      "anim": { "type": "roundkick", "limb": "footR" }
+    },
+    "b_rp": {
+      "name": "蓄力锤击", "command": "b+RP",
+      "startup": 28, "active": 4, "recovery": 20,
+      "level": "mid", "damage": 25,
+      "hitbox": { "reach": 1.0, "height": 1.3, "radius": 0.32 },
+      "armor": [6, 26], "advance": 0.3,
+      "onHit": { "type": "stagger", "advantage": 22, "knockback": 0.3 }, "onBlock": { "advantage": -2, "pushback": 0.8 },
+      "clashesProjectiles": true,
+      "anim": { "type": "hammer" }
+    },
+    "df_rp": {
+      "name": "熊之上勾拳", "command": "df+RP",
+      "startup": 16, "active": 3, "recovery": 26,
+      "level": "mid", "damage": 14,
+      "hitbox": { "reach": 0.78, "height": 1.4, "radius": 0.28 },
+      "advance": 0.15,
+      "onHit": { "type": "launch", "launch": 0.09 }, "onBlock": { "advantage": -14, "pushback": 0.2 },
+      "anim": { "type": "uppercut", "limb": "handR" }
+    },
+    "ws_rp": {
+      "name": "起身重勾拳", "command": "RP", "context": "ws",
+      "startup": 16, "active": 3, "recovery": 24,
+      "level": "mid", "damage": 18,
+      "hitbox": { "reach": 0.8, "height": 1.35, "radius": 0.28 },
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -13, "pushback": 0.3 },
+      "anim": { "type": "uppercut", "limb": "handL" }
+    },
+    "d_lk": {
+      "name": "下段低踹", "command": "d+LK",
+      "startup": 16, "active": 3, "recovery": 20,
+      "level": "low", "damage": 9,
+      "hitbox": { "reach": 1.0, "height": 0.25, "radius": 0.26 },
+      "hitsGrounded": true,
+      "onHit": { "advantage": 1 }, "onBlock": { "advantage": -13, "pushback": 0.2 },
+      "anim": { "type": "lowkick", "limb": "footL" }
+    },
+    "d_rk": {
+      "name": "地震踏", "command": "d+RK",
+      "startup": 24, "active": 4, "recovery": 24,
+      "level": "low", "damage": 13,
+      "hitbox": { "reach": 0.95, "height": 0.15, "radius": 0.38 },
+      "hitsGrounded": true,
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -15, "pushback": 0.2 },
+      "anim": { "type": "stomp", "limb": "footR" }
+    },
+    "qcf_rp": {
+      "name": "重炮拳", "command": "qcf+RP",
+      "startup": 30, "active": 1, "recovery": 28,
+      "level": "none", "damage": 0,
+      "projectile": {
+        "kind": "cannon", "spawnFrame": 30, "speed": 0.07, "lifetime": 100,
+        "radius": 0.48, "height": 1.25, "damage": 20, "level": "mid",
+        "hitStun": 30, "blockStun": 20, "pushback": 0.8,
+        "onHit": { "type": "knockdown" }
+      },
+      "anim": { "type": "cast", "limb": "handR" }
+    },
+    "throw": {
+      "name": "熊抱碎骨", "command": "LP+RP",
+      "startup": 13, "active": 2, "recovery": 30,
+      "level": "throw", "damage": 22,
+      "throw": { "range": 1.0, "breakInput": "LP+RP", "duration": 70, "damageFrame": 50, "type": "lift", "swap": false },
+      "anim": { "type": "grab" }
+    },
+    "f_throw": {
+      "name": "巨人背摔", "command": "f+LP+RP",
+      "startup": 15, "active": 2, "recovery": 32,
+      "level": "throw", "damage": 28,
+      "throw": { "range": 1.0, "breakInput": "LK+RK", "duration": 76, "damageFrame": 56, "type": "suplex", "swap": true },
+      "anim": { "type": "grab" }
+    }
+  }
+}

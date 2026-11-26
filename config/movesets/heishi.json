@@ -1,0 +1,147 @@
+{
+  "id": "heishi",
+  "name": "HEISHI",
+  "title": "黑士",
+  "style": "空手道",
+  "archetype": "均衡型",
+  "description": "白色武道服的空手道家。拳脚均衡、浮空连稳定，新手首选。",
+  "ratings": { "power": 3, "speed": 3, "reach": 3, "difficulty": 1 },
+  "stats": {
+    "height": 1.83, "scale": 1.0, "weight": 1.0,
+    "walkSpeed": 0.034, "backWalkSpeed": 0.028,
+    "dashSpeed": 0.11, "dashFrames": 14, "runSpeed": 0.09,
+    "backdashDistance": 1.15, "backdashFrames": 20,
+    "sidestepDistance": 0.95, "sidestepFrames": 16,
+    "jumpVelocity": 0.13, "jumpForwardSpeed": 0.04, "gravity": 0.0085,
+    "crouchHeight": 1.12, "hurtRadius": 0.3, "pushRadius": 0.33
+  },
+  "moves": {
+    "lp": {
+      "name": "左刺拳", "command": "LP",
+      "startup": 10, "active": 2, "recovery": 13,
+      "level": "high", "damage": 5,
+      "hitbox": { "reach": 0.82, "height": 1.52, "radius": 0.2 },
+      "onHit": { "advantage": 8 }, "onBlock": { "advantage": 1, "pushback": 0.15 },
+      "chain": [ { "input": "LP", "move": "lp_lp", "window": [3, 20] } ],
+      "anim": { "type": "punch", "limb": "handL" }
+    },
+    "lp_lp": {
+      "name": "二连刺拳", "command": "chain",
+      "startup": 8, "active": 2, "recovery": 15,
+      "level": "high", "damage": 6,
+      "hitbox": { "reach": 0.85, "height": 1.5, "radius": 0.2 },
+      "onHit": { "advantage": 6 }, "onBlock": { "advantage": -1, "pushback": 0.15 },
+      "chain": [ { "input": "RP", "move": "lp_lp_rp", "window": [3, 20] } ],
+      "anim": { "type": "punch", "limb": "handL" }
+    },
+    "lp_lp_rp": {
+      "name": "三连击·正拳", "command": "chain",
+      "startup": 10, "active": 3, "recovery": 20,
+      "level": "high", "damage": 10,
+      "hitbox": { "reach": 0.92, "height": 1.48, "radius": 0.22 },
+      "advance": 0.15,
+      "onHit": { "advantage": 4, "knockback": 0.45 }, "onBlock": { "advantage": -6, "pushback": 0.35 },
+      "onCounter": { "type": "knockdown" },
+      "anim": { "type": "punch", "limb": "handR" }
+    },
+    "rp": {
+      "name": "右直拳", "command": "RP",
+      "startup": 12, "active": 2, "recovery": 16,
+      "level": "high", "damage": 8,
+      "hitbox": { "reach": 0.9, "height": 1.5, "radius": 0.21 },
+      "onHit": { "advantage": 6 }, "onBlock": { "advantage": -3, "pushback": 0.2 },
+      "anim": { "type": "punch", "limb": "handR" }
+    },
+    "b_rp": {
+      "name": "中段肘击", "command": "b+RP",
+      "startup": 14, "active": 3, "recovery": 17,
+      "level": "mid", "damage": 11,
+      "hitbox": { "reach": 0.7, "height": 1.25, "radius": 0.25 },
+      "advance": 0.25,
+      "onHit": { "advantage": 5 }, "onBlock": { "advantage": -4, "pushback": 0.25 },
+      "onCounter": { "type": "stagger", "advantage": 18 },
+      "clashesProjectiles": true,
+      "anim": { "type": "elbow", "limb": "handR" }
+    },
+    "lk": {
+      "name": "中段前踢", "command": "LK",
+      "startup": 13, "active": 3, "recovery": 18,
+      "level": "mid", "damage": 10,
+      "hitbox": { "reach": 0.95, "height": 1.05, "radius": 0.24 },
+      "onHit": { "advantage": 4, "knockback": 0.3 }, "onBlock": { "advantage": -6, "pushback": 0.3 },
+      "anim": { "type": "kick", "limb": "footL" }
+    },
+    "rk": {
+      "name": "右回旋上段踢", "command": "RK",
+      "startup": 15, "active": 3, "recovery": 22,
+      "level": "high", "damage": 14,
+      "hitbox": { "reach": 1.05, "height": 1.5, "radius": 0.26 },
+      "tracking": 3,
+      "onHit": { "advantage": 6, "knockback": 0.4 }, "onBlock": { "advantage": -9, "pushback": 0.3 },
+      "onCounter": { "type": "knockdown" },
+      "anim": { "type": "roundkick", "limb": "footR" }
+    },
+    "df_rp": {
+      "name": "升龙拳", "command": "df+RP",
+      "startup": 15, "active": 3, "recovery": 22,
+      "level": "mid", "damage": 12,
+      "hitbox": { "reach": 0.72, "height": 1.35, "radius": 0.26 },
+      "advance": 0.15,
+      "onHit": { "type": "launch", "launch": 0.095 }, "onBlock": { "advantage": -13, "pushback": 0.2 },
+      "anim": { "type": "uppercut", "limb": "handR" }
+    },
+    "ws_rp": {
+      "name": "起身升拳", "command": "RP", "context": "ws",
+      "startup": 14, "active": 3, "recovery": 22,
+      "level": "mid", "damage": 13,
+      "hitbox": { "reach": 0.72, "height": 1.3, "radius": 0.26 },
+      "onHit": { "type": "launch", "launch": 0.09 }, "onBlock": { "advantage": -12, "pushback": 0.2 },
+      "anim": { "type": "uppercut", "limb": "handR" }
+    },
+    "ff_rk": {
+      "name": "突进飞踢", "command": "f,f+RK",
+      "startup": 19, "active": 4, "recovery": 24,
+      "level": "mid", "damage": 16,
+      "hitbox": { "reach": 1.0, "height": 1.3, "radius": 0.28 },
+      "advance": 1.2,
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -12, "pushback": 0.5 },
+      "anim": { "type": "flykick", "limb": "footR" }
+    },
+    "d_lk": {
+      "name": "下段扫踢", "command": "d+LK",
+      "startup": 14, "active": 3, "recovery": 20,
+      "level": "low", "damage": 7,
+      "hitbox": { "reach": 0.95, "height": 0.25, "radius": 0.24 },
+      "crouching": true, "hitsGrounded": true,
+      "onHit": { "advantage": 2 }, "onBlock": { "advantage": -12, "pushback": 0.15 },
+      "anim": { "type": "lowkick", "limb": "footL" }
+    },
+    "d_rk": {
+      "name": "扫腿", "command": "d+RK",
+      "startup": 20, "active": 4, "recovery": 26,
+      "level": "low", "damage": 10,
+      "hitbox": { "reach": 1.15, "height": 0.2, "radius": 0.28 },
+      "crouching": true, "hitsGrounded": true,
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -17, "pushback": 0.15 },
+      "anim": { "type": "sweep", "limb": "footR" }
+    },
+    "qcf_lp": {
+      "name": "冲击波", "command": "qcf+LP",
+      "startup": 20, "active": 1, "recovery": 26,
+      "level": "none", "damage": 0,
+      "projectile": {
+        "kind": "shockwave", "spawnFrame": 20, "speed": 0.11, "lifetime": 72,
+        "radius": 0.32, "height": 1.1, "damage": 12, "level": "mid",
+        "hitStun": 26, "blockStun": 14, "pushback": 0.5
+      },
+      "anim": { "type": "cast", "limb": "handR" }
+    },
+    "throw": {
+      "name": "背负投", "command": "LP+RP",
+      "startup": 12, "active": 2, "recovery": 28,
+      "level": "throw", "damage": 18,
+      "throw": { "range": 0.95, "breakInput": "LP+RP", "duration": 64, "damageFrame": 44, "type": "over", "swap": true },
+      "anim": { "type": "grab" }
+    }
+  }
+}

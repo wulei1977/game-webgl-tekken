@@ -1,0 +1,179 @@
+{
+  "id": "rina",
+  "name": "RINA",
+  "title": "莉娜",
+  "style": "警察格斗术",
+  "archetype": "敏捷型",
+  "description": "深蓝警服的女警。速度快、下段多，可拔出警棍（伤害 ×1.5），拥有电击弹与闪光弹两种飞行道具。",
+  "ratings": { "power": 2, "speed": 5, "reach": 2, "difficulty": 3 },
+  "weapon": { "name": "警棍", "damageMultiplier": 1.5 },
+  "stats": {
+    "height": 1.68, "scale": 0.93, "weight": 0.9,
+    "walkSpeed": 0.038, "backWalkSpeed": 0.032,
+    "dashSpeed": 0.12, "dashFrames": 13, "runSpeed": 0.1,
+    "backdashDistance": 1.25, "backdashFrames": 18,
+    "sidestepDistance": 1.05, "sidestepFrames": 14,
+    "jumpVelocity": 0.135, "jumpForwardSpeed": 0.045, "gravity": 0.0085,
+    "crouchHeight": 1.02, "hurtRadius": 0.27, "pushRadius": 0.31
+  },
+  "moves": {
+    "lp": {
+      "name": "快速刺拳", "command": "LP", "requiresWeapon": false,
+      "startup": 9, "active": 2, "recovery": 11,
+      "level": "high", "damage": 4,
+      "hitbox": { "reach": 0.78, "height": 1.42, "radius": 0.19 },
+      "onHit": { "advantage": 8 }, "onBlock": { "advantage": 1, "pushback": 0.12 },
+      "chain": [ { "input": "LP", "move": "lp_lp", "window": [3, 18] } ],
+      "anim": { "type": "punch", "limb": "handL" }
+    },
+    "lp_lp": {
+      "name": "二连快拳", "command": "chain",
+      "startup": 8, "active": 2, "recovery": 14,
+      "level": "high", "damage": 5,
+      "hitbox": { "reach": 0.8, "height": 1.4, "radius": 0.19 },
+      "onHit": { "advantage": 5 }, "onBlock": { "advantage": -2, "pushback": 0.12 },
+      "chain": [ { "input": "RK", "move": "lp_lp_rk", "window": [3, 18] } ],
+      "anim": { "type": "punch", "limb": "handR" }
+    },
+    "lp_lp_rk": {
+      "name": "连段上段踢", "command": "chain",
+      "startup": 13, "active": 3, "recovery": 22,
+      "level": "high", "damage": 12,
+      "hitbox": { "reach": 0.98, "height": 1.42, "radius": 0.24 },
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -9, "pushback": 0.3 },
+      "anim": { "type": "roundkick", "limb": "footR" }
+    },
+    "rp": {
+      "name": "直拳", "command": "RP", "requiresWeapon": false,
+      "startup": 11, "active": 2, "recovery": 14,
+      "level": "high", "damage": 7,
+      "hitbox": { "reach": 0.84, "height": 1.42, "radius": 0.2 },
+      "onHit": { "advantage": 6 }, "onBlock": { "advantage": -2, "pushback": 0.15 },
+      "anim": { "type": "punch", "limb": "handR" }
+    },
+    "lk": {
+      "name": "轻踢", "command": "LK",
+      "startup": 11, "active": 2, "recovery": 15,
+      "level": "mid", "damage": 7,
+      "hitbox": { "reach": 0.9, "height": 1.0, "radius": 0.22 },
+      "onHit": { "advantage": 5 }, "onBlock": { "advantage": -4, "pushback": 0.2 },
+      "anim": { "type": "kick", "limb": "footL" }
+    },
+    "rk": {
+      "name": "回旋踢", "command": "RK",
+      "startup": 17, "active": 3, "recovery": 22,
+      "level": "high", "damage": 14,
+      "hitbox": { "reach": 1.0, "height": 1.45, "radius": 0.26 },
+      "tracking": 6,
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -10, "pushback": 0.3 },
+      "anim": { "type": "spinkick", "limb": "footR" }
+    },
+    "d_lk": {
+      "name": "下段踢", "command": "d+LK",
+      "startup": 12, "active": 2, "recovery": 18,
+      "level": "low", "damage": 6,
+      "hitbox": { "reach": 0.9, "height": 0.25, "radius": 0.22 },
+      "crouching": true, "hitsGrounded": true,
+      "onHit": { "advantage": 2 }, "onBlock": { "advantage": -11, "pushback": 0.12 },
+      "anim": { "type": "lowkick", "limb": "footL" }
+    },
+    "d_rk": {
+      "name": "下段扫", "command": "d+RK",
+      "startup": 18, "active": 3, "recovery": 24,
+      "level": "low", "damage": 9,
+      "hitbox": { "reach": 1.05, "height": 0.2, "radius": 0.26 },
+      "crouching": true, "hitsGrounded": true,
+      "onHit": { "type": "knockdown" }, "onBlock": { "advantage": -15, "pushback": 0.12 },
+      "anim": { "type": "sweep", "limb": "footR" }
+    },
+    "df_rk": {
+      "name": "上挑踢", "command": "df+RK",
+      "startup": 15, "active": 3, "recovery": 22,
+      "level": "mid", "damage": 11,
+      "hitbox": { "reach": 0.85, "height": 1.3, "radius": 0.25 },
+      "onHit": { "type": "launch", "launch": 0.1 }, "onBlock": { "advantage": -12, "pushback": 0.2 },
+      "anim": { "type": "kick", "limb": "footR" }
+    },
+    "qcf_lp": {
+      "name": "电击弹", "command": "qcf+LP",
+      "startup": 16, "active": 1, "recovery": 22,
+      "level": "none", "damage": 0,
+      "projectile": {
+        "kind": "shock", "spawnFrame": 16, "speed": 0.16, "lifetime": 50,
+        "radius": 0.22, "height": 1.15, "damage": 10, "level": "mid",
+        "hitStun": 30, "blockStun": 12, "pushback": 0.35,
+        "onHit": { "type": "stagger" }
+      },
+      "anim": { "type": "cast", "limb": "handR" }
+    },
+    "qcb_lp": {
+      "name": "闪光弹", "command": "qcb+LP",
+      "startup": 14, "active": 1, "recovery": 20,
+      "level": "none", "damage": 0,
+      "projectile": {
+        "kind": "flash", "spawnFrame": 14, "speed": 0.2, "lifetime": 18,
+        "radius": 0.25, "height": 1.5, "damage": 8, "level": "high",
+        "hitStun": 36, "blockStun": 10, "pushback": 0.25, "explodeRadius": 0.9,
+        "onHit": { "type": "stagger" }
+      },
+      "anim": { "type": "toss", "limb": "handR" }
+    },
+    "throw": {
+      "name": "手铐擒拿", "command": "LP+RP",
+      "startup": 12, "active": 2, "recovery": 28,
+      "level": "throw", "damage": 16,
+      "throw": { "range": 0.9, "breakInput": "LP+RP", "duration": 60, "damageFrame": 40, "type": "takedown", "swap": false },
+      "anim": { "type": "grab" }
+    },
+    "draw": {
+      "name": "拔棍", "command": "LK+RK", "requiresWeapon": false,
+      "startup": 1, "active": 1, "recovery": 21,
+      "level": "none", "damage": 0,
+      "toggleWeapon": 12,
+      "anim": { "type": "draw" }
+    },
+    "sheathe": {
+      "name": "收棍", "command": "LK+RK", "requiresWeapon": true,
+      "startup": 1, "active": 1, "recovery": 17,
+      "level": "none", "damage": 0,
+      "toggleWeapon": 9,
+      "anim": { "type": "sheathe" }
+    },
+    "bt_lp": {
+      "name": "警棍挥击", "command": "LP", "requiresWeapon": true, "weapon": true,
+      "startup": 12, "active": 3, "recovery": 16,
+      "level": "high", "damage": 6,
+      "hitbox": { "reach": 1.05, "height": 1.5, "radius": 0.24 },
+      "onHit": { "advantage": 6 }, "onBlock": { "advantage": -3, "pushback": 0.2 },
+      "clashesProjectiles": true,
+      "anim": { "type": "baton", "limb": "handR" }
+    },
+    "bt_rp": {
+      "name": "警棍突刺", "command": "RP", "requiresWeapon": true, "weapon": true,
+      "startup": 15, "active": 3, "recovery": 19,
+      "level": "mid", "damage": 8,
+      "hitbox": { "reach": 1.15, "height": 1.2, "radius": 0.22 },
+      "advance": 0.2,
+      "onHit": { "advantage": 4 }, "onBlock": { "advantage": -6, "pushback": 0.25 },
+      "onCounter": { "type": "stagger", "advantage": 16 },
+      "anim": { "type": "batonThrust", "limb": "handR" }
+    },
+    "bt_d_rp": {
+      "name": "警棍下段扫", "command": "d+RP", "requiresWeapon": true, "weapon": true,
+      "startup": 16, "active": 3, "recovery": 23,
+      "level": "low", "damage": 7,
+      "hitbox": { "reach": 1.05, "height": 0.25, "radius": 0.25 },
+      "crouching": true, "hitsGrounded": true,
+      "onHit": { "advantage": 1 }, "onBlock": { "advantage": -13, "pushback": 0.15 },
+      "anim": { "type": "batonSweep", "limb": "handR" }
+    },
+    "bt_df_rp": {
+      "name": "警棍上挑", "command": "df+RP", "requiresWeapon": true, "weapon": true,
+      "startup": 15, "active": 3, "recovery": 24,
+      "level": "mid", "damage": 8,
+      "hitbox": { "reach": 0.9, "height": 1.3, "radius": 0.25 },
+      "onHit": { "type": "launch", "launch": 0.095 }, "onBlock": { "advantage": -13, "pushback": 0.2 },
+      "anim": { "type": "batonUpper", "limb": "handR" }
+    }
+  }
+}
